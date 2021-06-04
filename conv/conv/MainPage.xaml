@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="conv.MainPage"
+             BackgroundColor="Aqua">
+    <ContentPage.Resources>
+        <Style x:Key="EntryStyle"
+               TargetType="Entry">
+            <Setter Property="Placeholder" Value="1"></Setter>
+            <Setter Property="PlaceholderColor" Value="Black"></Setter>
+            <Setter Property="TextColor" Value="Aqua"></Setter>
+            <Setter Property="Keyboard" Value="Numeric"></Setter>
+            <Setter Property="WidthRequest" Value="100"></Setter>
+        </Style>
+
+
+        <Style x:Key="PickerStyle"
+               TargetType="Picker">
+            <Setter Property="TextColor" Value="Aqua"></Setter>
+            <Setter Property="Visual" Value="Material"></Setter>
+            <Setter Property="Title" Value="Select a currency"></Setter>
+            <Setter Property="WidthRequest" Value="100"></Setter>
+            <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+        </Style>
+
+    </ContentPage.Resources>
+
+    <StackLayout BackgroundColor="Aqua" VerticalOptions="StartAndExpand">
+        <Label Text="Конвертер валют" HorizontalOptions="Center" FontSize="30" TextColor="Aqua" Margin="30"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+            <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding ValuteCodes}" SelectedIndex="{Binding FirstValuteCodeIndex}" Margin="30">
+            </Picker>
+            <Entry Text="{Binding FirstValute}" Style="{StaticResource EntryStyle}" Margin="30"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+            <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding ValuteCodes}" SelectedIndex="{Binding SecondValuteCodeIndex}" Margin="30">
+            </Picker>
+            <Entry Text="{Binding SecondValute}" Style="{StaticResource EntryStyle}" Margin="30"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
